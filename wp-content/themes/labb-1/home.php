@@ -20,16 +20,19 @@ get_header();
 
                                         the_title();
                                         ?>
+                                      
+
+                                        
                                          <ul class="meta">
 									<li>
-										<i class="fa fa-calendar"></i> <?php echo get_the_date(); ?>
+										<i class="fa fa-calendar"></i> <?php the_date(); ?>
 									</li>
 									<li>
 										<i class="fa fa-user"></i> <?php the_author(); ?>
 									</li> 
 									<li>
 										<i class="fa fa-tag"></i> 
-                                       <?php the_tags(); ?>
+                                       <?php the_tags(''); ?>
 									</li>
 								</ul> 
                                          <p> <?php  the_content(); ?> </p> 

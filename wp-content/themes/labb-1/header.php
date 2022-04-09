@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Labb</title>
+    <title>Labb-1</title>
     <?php
     wp_head();
     ?>
@@ -19,8 +19,13 @@
 				<div class="row">
 					<div class="col-xs-8 col-sm-6">
       
-						<a class="logo" href="<?php get_bloginfo("url"); ?>
-                        <?php get_bloginfo("name"); ?> "></a>
+						
+                        <?php 
+                        //change here ?>
+                        
+                        <a class='logo' href='./front-page.php'><?php bloginfo(''); ?> <?php ?></a>
+                     
+
                         
 					</div>
 					<div class="col-sm-6 hidden-xs">

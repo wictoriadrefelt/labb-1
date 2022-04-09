@@ -24,6 +24,7 @@ add_action( 'wp_enqueue_scripts', 'initStyleScript' );
 add_theme_support('menus');
 add_theme_support('widgets');
 add_theme_support('post-thumbnails');
+//add_theme_support('title-tag');
 
 add_action('after_setup_theme', 'getTheRightMenu');
 
@@ -31,5 +32,14 @@ function getTheRightMenu(){
     register_nav_menu('mainMenu', 'mainMenu');
     register_nav_menu('social-menu', 'social-menu');
 }
+
+function some_name(){
+    add_theme_support( 'title-tag' );
+}
+
+add_action( 'after_setup_theme', 'some_name' );
+
+
+//add_filter( 'wp_title', 'fep_pre_get_document_title', 99 );
 
 ?>
