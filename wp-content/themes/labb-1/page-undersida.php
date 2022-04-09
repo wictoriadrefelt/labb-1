@@ -1,7 +1,13 @@
+<?php
+/*
+Template Name: Nav-bar-right
+
+*/
+?>
+
 <?php 
 get_header(); 
 ?> 
-
 
 
 <main>
@@ -17,18 +23,24 @@ get_header();
                                         ?>
                                         <h1> <?php the_title(); ?> </h1> 
                                         <?php
+                                        
                                         the_content();
                                         the_tags();
                                     }
                                    ?>
                                     
-                                    <div class="text">
-
-                                    
-                                        
-                                    </div>
                                 </div>
-                            </div>
+
+                                    <aside id="secondary" class="col-xs-12 col-md-3">
+							<ul class="side-menu">
+                            <?php wp_nav_menu(array(
+                            'theme_location' => 
+                            'side-menu-right'
+                        ));
+                        ?>
+                        </ul> 
+                    </aside>
+                              
                         </div>
                     </div>
                     

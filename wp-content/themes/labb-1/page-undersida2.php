@@ -1,14 +1,20 @@
+<?php
+/*
+Template Name: Nav-bar-left
+
+*/
+?>
+
 <?php 
 get_header(); 
 ?> 
-
 
 
 <main>
 <section>
 				<div class="container">
 					<div class="row">
-						<div id="primary" class="col-xs-12 col-md-9">
+						<div id="primary" class="col-xs-12 col-md-9 col-md-push-3">
                                     <?php
                                     if(have_posts()){
                                         while(have_posts()){
@@ -17,18 +23,25 @@ get_header();
                                         ?>
                                         <h1> <?php the_title(); ?> </h1> 
                                         <?php
+                                        
                                         the_content();
                                         the_tags();
                                     }
                                    ?>
                                     
-                                    <div class="text">
-
-                                    
-                                        
-                                    </div>
-                                </div>
-                            </div>
+                                	</div>
+						<aside id="secondary" class="col-xs-12 col-md-3 col-md-pull-9">
+							<ul class="side-menu">
+                          <li>    
+                            <?php wp_nav_menu(array(
+                            'theme_location' => 
+                            'side-menu-left'
+                        ));
+                        ?>
+                        </li>
+                        </ul> 
+                    </aside>
+                              
                         </div>
                     </div>
                     

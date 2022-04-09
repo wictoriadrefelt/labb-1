@@ -30,7 +30,8 @@ add_action('after_setup_theme', 'getTheRightMenu');
 
 function getTheRightMenu(){
     register_nav_menu('mainMenu', 'mainMenu');
-    register_nav_menu('social-menu', 'social-menu');
+    register_nav_menu('sideMenuLeft', 'side-menu-left');
+    register_nav_menu('sideMenuRight', 'side-menu-right');
 }
 
 function some_name(){
@@ -40,6 +41,17 @@ function some_name(){
 add_action( 'after_setup_theme', 'some_name' );
 
 
-//add_filter( 'wp_title', 'fep_pre_get_document_title', 99 );
+function forSideBars(){
+register_sidebar(
+    [
+        'name' => 'mySideBar', 
+        'id' => 'mySideBar',
+        'description' => 'Widget to display side menu' 
+        
+    ]
 
+); 
+
+}
+add_action('after_setup_theme', 'forSideBars');
 ?>
