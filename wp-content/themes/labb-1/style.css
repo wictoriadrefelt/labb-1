@@ -1,3 +1,13 @@
+/*
+
+Theme Name: labb-1
+Text Domain: labb-1
+Version: 1.0
+
+*/
+
+
+
 /* General styles
 ------------------------------------------------------------------ */
 
@@ -88,7 +98,8 @@ textarea {
 			padding: 0 10px;
 		}
 
-			#header form input[type="text"] {
+		#header form input[type="text"] {
+			color: white;
 			}
 
 			#header form input[type="submit"] {
