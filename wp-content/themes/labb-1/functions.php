@@ -26,12 +26,13 @@ add_theme_support('widgets');
 add_theme_support('post-thumbnails');
 //add_theme_support('title-tag');
 
-add_action('after_setup_theme', 'getTheRightMenu');
+add_action('after_setup_theme', 'getMenu');
 
-function getTheRightMenu(){
+function getMenu(){
     register_nav_menu('mainMenu', 'mainMenu');
     register_nav_menu('sideMenuLeft', 'side-menu-left');
     register_nav_menu('sideMenuRight', 'side-menu-right');
+    register_nav_menu('footerMenu', 'footerMenu');
 }
 
 function some_name(){
@@ -49,9 +50,43 @@ register_sidebar(
         'description' => 'Widget to display side menu' 
         
     ]
+    
 
 ); 
 
 }
+
+
+function forFooter(){
+    register_sidebar(
+        [
+            'name' => 'myFooterWidget', 
+            'id' => 'myFooterWidget',
+            'description' => 'Widget for footer - About us',
+            'before_widget' => '',
+            'after_widget' => '',
+            
+        ]);
+        register_sidebar(
+        [
+            'name' => 'myFooterWidget2', 
+            'id' => 'myFooterWidget2',
+            'description' => 'Widget for footer - Contact form',
+            'before_widget' => '',
+            'after_widget' => ''
+
+        ]);
+        register_sidebar(
+            [
+            'name' => 'myFooterWidget3', 
+            'id' => 'myFooterWidget3',
+            'description' => 'Widget for for footer - Social media icons' 
+            ]
+            );
+     
+    
+    }
+
 add_action('after_setup_theme', 'forSideBars');
+add_action('after_setup_theme', 'forFooter');
 ?>
