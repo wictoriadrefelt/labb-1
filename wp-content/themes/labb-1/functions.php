@@ -37,6 +37,7 @@ function getMenu(){
 
 function some_name(){
     add_theme_support( 'title-tag' );
+    add_theme_support( 'plugins' );
 }
 
 add_action( 'after_setup_theme', 'some_name' );
@@ -87,6 +88,58 @@ function forFooter(){
     
     }
 
+function addContactForm() {
+    register_sidebar(
+        [
+            'name' => 'myContactForm', 
+            'id' => 'myContactForm',
+            'description' => 'Widget to display contact form' 
+            
+        ]
+        
+    
+    );
+
+}
+
 add_action('after_setup_theme', 'forSideBars');
 add_action('after_setup_theme', 'forFooter');
+add_action('after_setup_theme', 'addContactForm');
+
+
+
+/* Add custom classes to list item "li" */
+
+function _namespace_menu_item_class( $classes, $item ) {       
+    $classes[] = "custom"; // you can add multiple classes here
+    return $classes;
+} 
+
+add_filter( 'sideMenuLeft' , '_namespace_menu_item_class' , 10, 2 );
+
+?>
+
+<?php
+add_filter( 'the_content', 'filter_the_content_in_the_main_loop', 1 );
+ 
+function filter_the_content_in_the_main_loop( $content ) {
+ 
+    // Check if we're inside the main loop in a single Post.
+    if ( is_singular() && in_the_loop() && is_main_query() ) {
+        return $content . esc_html__( 'I’m filtering the content inside the main loop', 'wporg');
+    }
+ 
+    return $content;
+
+}
+
+function my_added_page_content ( $content ) {
+    if ( is_page() ) {
+        return $content . '<p>Your content added to all pages (not posts).</p>';
+    }
+ 
+    return $content;
+}
+add_filter( 'the_content', 'my_added_page_content');
+
 ?>

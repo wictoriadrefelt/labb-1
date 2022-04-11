@@ -21,9 +21,13 @@
       
 						
                         <?php 
-                        //change here ?>
-                        
-                        <a class='logo' href='./front-page.php'><?php bloginfo(''); ?> <?php ?></a>
+                        //change here 
+                        $site_url = network_site_url( '/' );
+                        $blog_title = get_bloginfo();
+                        ?>
+                        <a class='logo' href="<?php echo home_url(); ?>">
+                      
+                        <?php echo $blog_title; ?>
                      
 
                         
@@ -48,8 +52,13 @@
 		<div class="mobile-search">
 			<form id="searchform" class="searchform">
 				<div>
-					<label class="screen-reader-text">Sök efter:</label>
-					<input type="text" />
+                    
+					<!-- <label class="screen-reader-text">Sök efter:</label>
+					<input type="text" /> -->
+                    <?php
+                    //retrieves a search form 
+                    get_search_form(); ?>
+
 					<input type="submit" value="Sök" />
 				</div>
 			</form>
@@ -60,7 +69,9 @@
 				<div class="row">
 					<div class="col-xs-12">
 
-                        <?php wp_nav_menu(array(
+                        <?php 
+                        //retrieves our main menu in header
+                        wp_nav_menu(array(
                             'theme_location' => 
                             'mainMenu'
                         ));

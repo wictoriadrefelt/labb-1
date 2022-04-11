@@ -228,9 +228,14 @@ main {
 			font-size: 50px;
 		}
 
-		.widget li {
-			list-style: none;
-		  }
+	.custom {
+		color: black;
+	}
+	
+		  .main-header-bar .main-header-bar-navigation .menu-link::after {
+			content: "|";
+			padding-left: 1em;
+		}
 
 @media ( max-width: 768px ) {
 

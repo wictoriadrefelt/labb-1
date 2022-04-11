@@ -31,6 +31,10 @@ get_header();
                                    ?>
                                     
                                     <div class="text">
+                                        
+                        <?php 
+								dynamic_sidebar('myContactForm');
+							?>
 
                                     
                                         
