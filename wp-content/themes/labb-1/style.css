@@ -228,9 +228,7 @@ main {
 			font-size: 50px;
 		}
 
-	.custom {
-		color: black;
-	}
+	
 	
 		  .main-header-bar .main-header-bar-navigation .menu-link::after {
 			content: "|";
