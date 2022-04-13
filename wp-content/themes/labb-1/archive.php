@@ -7,8 +7,12 @@ get_header();
 				<div class="container">
 					<div class="row">
 						<div id="primary" class="col-xs-12 col-md-9">
-                            <h1>Arkiv:
-							<?php wp_title(''); ?> 
+                            <h1>
+							<?php 
+                            $pagename = get_query_var('pagename');
+                            echo $pagename;
+                            echo get_the_title(101);
+                            wp_title(''); ?> 
 </h1>
                             
 							
