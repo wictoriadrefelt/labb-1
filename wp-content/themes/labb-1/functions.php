@@ -3,6 +3,7 @@
 
 <?php
 
+// retrieves stylesheets and js-files
  function initStyleScript(){
      wp_register_style('bootstrap', get_template_directory_uri().'/css/bootstrap.css');
      wp_register_style('faCss', get_template_directory_uri().'/css/font-awesome.css');
@@ -21,13 +22,11 @@ add_action( 'wp_enqueue_scripts', 'initStyleScript' );
 
 
 
-add_theme_support('menus');
-add_theme_support('widgets');
-add_theme_support('post-thumbnails');
-//add_theme_support('title-tag');
+
 
 add_action('after_setup_theme', 'getMenu');
 
+// creates our different menus
 function getMenu(){
     register_nav_menu('mainMenu', 'mainMenu');
     register_nav_menu('sideMenuLeft', 'side-menu-left');
@@ -35,14 +34,19 @@ function getMenu(){
     register_nav_menu('footerMenu', 'footerMenu');
 }
 
-function some_name(){
+// sets up all the needed functionality 
+function setup_theme_support(){
     add_theme_support( 'title-tag' );
     add_theme_support( 'plugins' );
+    add_theme_support('menus');
+    add_theme_support('widgets');
+    add_theme_support('post-thumbnails');
 }
 
-add_action( 'after_setup_theme', 'some_name' );
+add_action( 'after_setup_theme', 'setup_theme_support' );
 
 
+// function to create widget for side menu 
 function forSideBars(){
 register_sidebar(
     [
@@ -58,6 +62,7 @@ register_sidebar(
 }
 
 
+// function to create three separate widgets for footer
 function forFooter(){
     register_sidebar(
         [
@@ -88,6 +93,7 @@ function forFooter(){
     
     }
 
+// function to register widget with contact form 
 function addContactForm() {
     register_sidebar(
         [
@@ -111,7 +117,7 @@ add_action('after_setup_theme', 'addContactForm');
 /* Add custom classes to list item "li" */
 
 function _namespace_menu_item_class( $classes, $item ) {       
-    $classes[] = "custom"; // you can add multiple classes here
+    $classes[] = "custom"; 
     return $classes;
 } 
 
@@ -119,27 +125,5 @@ add_filter( 'sideMenuLeft' , '_namespace_menu_item_class' , 10, 2 );
 
 ?>
 
-<?php
-add_filter( 'the_content', 'filter_the_content_in_the_main_loop', 1 );
- 
-function filter_the_content_in_the_main_loop( $content ) {
- 
-    // Check if we're inside the main loop in a single Post.
-    if ( is_singular() && in_the_loop() && is_main_query() ) {
-        return $content . esc_html__( 'I’m filtering the content inside the main loop', 'wporg');
-    }
- 
-    return $content;
 
-}
 
-function my_added_page_content ( $content ) {
-    if ( is_page() ) {
-        return $content . '<p>Your content added to all pages (not posts).</p>';
-    }
- 
-    return $content;
-}
-add_filter( 'the_content', 'my_added_page_content');
-
-?>

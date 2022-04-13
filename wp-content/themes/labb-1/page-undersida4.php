@@ -22,9 +22,10 @@ get_header();
                                         ?>
                                         <h1> <?php the_title(); ?> </h1> 
                                         <p> <?php  the_content(); ?> </p>
-                                       
+                                        <php
+                                        the_post_thumbnail();
                                         
-                                        
+                                        ?>
                                         
                                            
                                         </div>
@@ -32,20 +33,20 @@ get_header();
                                         
                                         <div class="col-xs-12 col-sm-4 col-md-6">
                                           
-                                          
+                                       
                                        
                                         <?php
                                         //kom tillbaka hit 
                                         the_post_thumbnail();
                                        ?>
-                                         </div>
+                                        
 
                                         <?php
                                     }
                                    ?>
                                     
                               
-                            
+                                    </div>
                               
                         </div>
                     </div>
